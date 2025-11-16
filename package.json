@@ -1,0 +1,28 @@
+{
+  "name": "planit-journey",
+  "version": "1.0.0",
+  "description": "Tourism travel planner - (EEY4189 - Software Design)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thushanperera990/Planit-Journey.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thushanperera990/Planit-Journey/issues"
+  },
+  "homepage": "https://github.com/Thushanperera990/Planit-Journey#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.19.4"
+  }
+}
