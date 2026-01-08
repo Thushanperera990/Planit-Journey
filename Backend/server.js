@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 // Import routes (MUST BE CREATED)
-const userRoutes = require('./routes/userRoutes');
+const userRoutes = require('./routes/user');
 
 // 3. Initialize Express app and define connection details
 const app = express();
