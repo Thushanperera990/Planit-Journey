@@ -1,8 +1,9 @@
 const router = require("express").Router();
-const user = require("../models/user");
+const User = require("../models/user"); // Note: Capitalizing models is a standard convention
 const Booking = require("../models/bookings");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs"); // Switched to bcryptjs for Windows stability
 
+// --- POST: User Registration ---
 router.route("/reg").post(async (req, res) => {
   const {
     username,
@@ -18,35 +19,34 @@ router.route("/reg").post(async (req, res) => {
     trip
   } = req.body;
 
+  // 1. Validation
   if (password !== confirmPassword) {
-    return res.status(400).json({ error: "passwords need to be same" });
+    return res.status(400).json({ error: "Passwords need to be the same" });
   }
 
   try {
-    
-    const existingUser = await user.findOne({ username });
+    // 2. Check if username or email exists
+    const existingUser = await User.findOne({ username });
     if (existingUser) {
       return res.status(400).json({ error: "Username is already taken" });
     }
 
-   
-    const existingEmail = await user.findOne({ email });
+    const existingEmail = await User.findOne({ email });
     if (existingEmail) {
-      return res
-        .status(400)
-        .json({ error: "Email is already associated with an account" });
+      return res.status(400).json({ error: "Email is already associated with an account" });
     }
 
-    
-    const hashedPassword = bcrypt.hashSync(password, 10);
+    // 3. Hash Password (Asynchronous is better for performance)
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
 
-
-    const newUser = new user({
+    // 4. Create New User
+    const newUser = new User({
       username,
       firstname,
       lastname,
       password: hashedPassword,
-      confirmPassword: hashedPassword, 
+      // Note: We don't save confirmPassword to the database (it's redundant/insecure)
       birthdate,
       country,
       phone,
@@ -56,51 +56,22 @@ router.route("/reg").post(async (req, res) => {
     });
 
     await newUser.save();
-
-    
-    res.json("User registered successfully");
+    res.status(201).json("User registered successfully");
   } catch (error) {
     console.error("Error registering user:", error);
     res.status(500).json("Cannot register the user");
   }
 });
 
-router.get("/:id", async (req, res) => {
-  try {
-    const userId = req.params.id;
-    const foundUser = await user.findById(userId);
-
-    if (!foundUser) {
-      return res.status(404).json({ message: "User not found" });
-    }
-
-    res.json(foundUser);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
-
-// Get all users
-router.get('/', async (req, res) => {
-  try {
-      const users = await user.find();
-      res.json(users);
-  } catch (error) {
-      res.status(500).json({ message: error.message });
-  }
-});
-
-// Get all users with their ongoing tour information
+// --- GET: All users with ongoing tours ---
+// Move this ABOVE the /:id route so Express doesn't think "withOngoingTours" is an ID
 router.get('/withOngoingTours', async (req, res) => {
   try {
-    const users = await user.find();
-    // Fetch ongoing tour information for each user
+    const users = await User.find();
     const usersWithOngoingTours = await Promise.all(users.map(async (user) => {
-      // Fetch ongoing tour information for the user based on their username
-      const bookings = await Booking.find({ name: user.username }); // Adjusted query to match the username field
-      // Assuming a user can have multiple ongoing bookings, you can collect all tour names
+      const bookings = await Booking.find({ name: user.username });
       const ongoingTours = bookings.map(booking => booking.tourName);
-      return { ...user._doc, ongoing: ongoingTours }; // Merge ongoing tour information with user data
+      return { ...user._doc, ongoing: ongoingTours };
     }));
     res.json(usersWithOngoingTours);
   } catch (error) {
@@ -108,55 +79,53 @@ router.get('/withOngoingTours', async (req, res) => {
   }
 });
 
-// Get a single user by ID
-router.get('/:id', async (req, res) => {
-    try {
-        const users = await user.findById(req.params.id);
-        if (!users) {
-            return res.status(404).json({ message: 'User not found' });
-        }
-        res.json(users);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
+// --- GET: All users ---
+router.get('/', async (req, res) => {
+  try {
+    const users = await User.find();
+    res.json(users);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 });
 
-// Update user information
+// --- GET: Single user by ID ---
+router.get("/:id", async (req, res) => {
+  try {
+    const foundUser = await User.findById(req.params.id);
+    if (!foundUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    res.json(foundUser);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// --- PUT: Update user ---
 router.put("/:id", async (req, res) => {
   try {
-    const userId = req.params.id;
-    const updatedUserData = req.body; // Assuming req.body contains the updated user data
-
-    // Find the user by ID and update their information
-    const updatedUser = await user.findByIdAndUpdate(userId, updatedUserData, { new: true });
-
+    const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!updatedUser) {
       return res.status(404).json({ message: "User not found" });
     }
-
     res.json(updatedUser);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
 
-// Delete a user by ID
+// --- DELETE: User by ID ---
 router.delete("/:id", async (req, res) => {
   try {
-    const userId = req.params.id;
-
-    // Find the user by ID and delete them
-    const deletedUser = await user.findByIdAndDelete(userId);
-
+    const deletedUser = await User.findByIdAndDelete(req.params.id);
     if (!deletedUser) {
       return res.status(404).json({ message: "User not found" });
     }
-
     res.json({ message: "User deleted successfully" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
-
 
 module.exports = router;
