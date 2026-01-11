@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const dest = require('../models/dest');
+const dest = require('../models/destinations');
 
 router.route('/adddest').post(async (req, res) => {
 
