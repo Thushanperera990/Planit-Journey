@@ -109,7 +109,7 @@ const ContactUs = () => {
       };
 
       axios
-        .post("http://localhost:5000/contactus/add", newContact)
+        .post("http://localhost:8090/contactus/add", newContact)
         .then(() => {
           toast.success("Message sent successfully!", {
             position: "top-center",

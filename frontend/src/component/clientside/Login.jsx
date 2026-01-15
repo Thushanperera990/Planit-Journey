@@ -35,7 +35,7 @@ const Login = () => {
    e.preventDefault();
 
    try {
-     const res = await fetch("http://localhost:5000/login/log", {
+     const res = await fetch("http://localhost:8090/login/log", {
        method: "post",
        headers: {
          "Content-Type": "application/json",

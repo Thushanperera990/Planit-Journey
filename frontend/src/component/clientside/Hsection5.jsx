@@ -6,31 +6,46 @@ import Img4 from '../../Images/g4.png'
 import Img5 from '../../Images/g5.png'
 
 const Hsection5 = () => {
-
-    const style = {
-        height: "50vh",
-        backgroundColor:"white"
-
-    }
-
+    const sectionStyle = {
+        minHeight: "30vh", // Adjusted from 50vh to be more proportional for logos
+        backgroundColor: "white",
+        display: "flex",
+        alignItems: "center"
+    };
 
     return (
+        <div style={sectionStyle} className="py-5">
+            <div className="container">
+                {/* row-cols-2: 2 logos per row on mobile 
+                    row-cols-md-3: 3 logos per row on tablets
+                    row-cols-lg-5: 5 logos per row on desktops
+                */}
+                <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4 justify-content-center align-items-center text-center">
+                    
+                    <div className="col">
+                        <img src={Img1} alt="Partner 1" className="img-fluid opacity-75" style={{ maxWidth: "160px" }} />
+                    </div>
+                    
+                    <div className="col">
+                        <img src={Img2} alt="Partner 2" className="img-fluid opacity-75" style={{ maxWidth: "160px" }} />
+                    </div>
+                    
+                    <div className="col">
+                        <img src={Img3} alt="Partner 3" className="img-fluid opacity-75" style={{ maxWidth: "160px" }} />
+                    </div>
+                    
+                    <div className="col">
+                        <img src={Img4} alt="Partner 4" className="img-fluid opacity-75" style={{ maxWidth: "160px" }} />
+                    </div>
+                    
+                    <div className="col">
+                        <img src={Img5} alt="Partner 5" className="img-fluid opacity-75" style={{ maxWidth: "160px" }} />
+                    </div>
 
-        <div className='flex justify-center items-center align-middle' style={style}>
-
-            <div className='grid grid-cols-5 gap-4 w-[90%] mx-auto item-center ' >
-
-                <img src={Img1} alt="" width={220} />
-                <img src={Img2} alt="" width={220} />
-                <img src={Img3} alt="" width={220} />
-                <img src={Img4} alt="" width={220} />
-                <img src={Img5} alt="" width={220} />
+                </div>
             </div>
-
-
         </div>
-
-    )
+    );
 }
 
-export default Hsection5
+export default Hsection5;

@@ -8,7 +8,7 @@ const VirtualTours = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/images/all");
+        const response = await fetch("http://localhost:8090/api/images/all");
         const data = await response.json();
 
         const imagesData = data.map((item) => ({
@@ -41,7 +41,7 @@ const VirtualTours = () => {
           >
             <Link to={`/view/${image._id}`}>
               <img
-                src={`http://localhost:5000/${image.imagePath}`}
+                src={`http://localhost:8090/${image.imagePath}`}
                 alt=""
                 className="w-full h-52 object-cover transition duration-300 ease-in-out transform hover:scale-110"
               />

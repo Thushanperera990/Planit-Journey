@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom"; // Import Link
-import Nav from "./Nav";
+import Nav from "../clientside/Nav";
 import Hfotter from "./Hfotter";
 
 const Blogs = () => {
@@ -11,7 +11,7 @@ const Blogs = () => {
   // Function to fetch blogs
   const fetchBlogs = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/blogs");
+      const response = await axios.get("http://localhost:8090/blogs");
       setBlogs(response.data);
     } catch (error) {
       console.error("Error fetching blogs:", error);

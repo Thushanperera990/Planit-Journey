@@ -51,7 +51,7 @@ const Hsction8 = ({}) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/testreview/read")
+      .get("http://localhost:8090/testreview/read")
       .then((res) => {
         setReviews(res.data);
       })

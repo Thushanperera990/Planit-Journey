@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import Nav from './Nav';
+import Nav from '../clientside/Nav';
 import Hfotter from './Hfotter';
 import CommentSection from './CommentSection'; // Importing the comment section component
 
@@ -12,7 +12,7 @@ const SingleBlog = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/blogs/${id}`);
+        const response = await axios.get(`http://localhost:8090/blogs/${id}`);
         setBlog(response.data);
       } catch (error) {
         console.error("Error fetching blog:", error);

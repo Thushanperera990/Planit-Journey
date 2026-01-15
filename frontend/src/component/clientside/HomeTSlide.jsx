@@ -32,7 +32,7 @@ const HomeTSlide = () => {
     useEffect(() => {
 
 
-        axios.get("http://localhost:5000/tours").then((res) => {
+        axios.get("http://localhost:8090/tours").then((res) => {
             //console.log(res);
             setTours(res.data);
 
@@ -85,7 +85,7 @@ const HomeTSlide = () => {
                                                             <a href={'/tours/' + tour._id} style={{ textDecoration: "none", color:"#171617" }}>
                                                                 <div class="card" id='cardv '>
                                                                     <div class="img-wrapper">
-                                                                        <img src={`http://localhost:5000/${tour.images}`} className=" d-block w-100"
+                                                                        <img src={`http://localhost:8090/${tour.images}`} className=" d-block w-100"
                                                                             style={{
                                                                                 width: "390px",
                                                                                 height: "270px",

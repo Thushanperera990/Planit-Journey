@@ -13,7 +13,7 @@ const CommentSection = ({ blogId }) => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/comments/blog/${blogId}`);
+        const response = await axios.get(`http://localhost:8090/comments/blog/${blogId}`);
         setComments(response.data);
       } catch (error) {
         console.error("Error fetching comments:", error);
@@ -26,7 +26,7 @@ const CommentSection = ({ blogId }) => {
   const handleCommentSubmit = async () => {
     if (!newComment.trim()) return;
     try {
-      const response = await axios.post("http://localhost:5000/comments", {
+      const response = await axios.post("http://localhost:8090/comments", {
         blogId,
         author: "Anonymous",
         content: newComment,
@@ -42,7 +42,7 @@ const CommentSection = ({ blogId }) => {
   const handleReplySubmit = async () => {
     if (!replyContent.trim()) return;
     try {
-      const response = await axios.post("http://localhost:5000/comments", {
+      const response = await axios.post("http://localhost:8090/comments", {
         blogId,
         author: "Anonymous",
         content: replyContent,
@@ -59,7 +59,7 @@ const CommentSection = ({ blogId }) => {
   const handleEditComment = async () => {
     if (!editContent.trim()) return;
     try {
-      const response = await axios.put(`http://localhost:5000/comments/${editMode}`, {
+      const response = await axios.put(`http://localhost:8090/comments/${editMode}`, {
         content: editContent,
       });
       setComments((prevComments) =>
@@ -76,7 +76,7 @@ const CommentSection = ({ blogId }) => {
 
   const handleDeleteComment = async (commentId) => {
     try {
-      await axios.delete(`http://localhost:5000/comments/${commentId}`);
+      await axios.delete(`http://localhost:8090/comments/${commentId}`);
       setComments((prevComments) => prevComments.filter((comment) => comment._id !== commentId));
     } catch (error) {
       console.error("Error deleting comment:", error);

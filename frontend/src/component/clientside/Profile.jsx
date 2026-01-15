@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Card from "./Card";
+import Card from "../clientside/Card";
 import Layout from "./Layout";
 import axios from "axios";
 
@@ -28,7 +28,7 @@ const Profile = () => {
 
   const fetchUserData = async (userId) => {
     try {
-      const response = await axios.get(`http://localhost:5000/user/${userId}`);
+      const response = await axios.get(`http://localhost:8090/user/${userId}`);
       setUserData(response.data);
     } catch (error) {
       console.error("Error fetching user data:", error);

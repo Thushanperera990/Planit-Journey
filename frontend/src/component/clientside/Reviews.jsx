@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Nav from "./Nav";
+import Nav from "../clientside/Nav";
 import Hfotter from "./Hfotter";
 import titelImg from "../../Images/page-title-bg.png";
 
@@ -35,7 +35,7 @@ const Reviews = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/testreview/read")
+      .get("http://localhost:8090/testreview/read")
       .then((res) => {
         setReviews(res.data);
       })

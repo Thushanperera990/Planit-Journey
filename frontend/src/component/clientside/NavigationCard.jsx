@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "./Card";
+import Card from "../clientside/Card";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const NavigationCard = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import NavigationCard from "./NavigationCard";
-import Nav from "./Nav"
+import Nav from "../clientside/Nav"
 const Layout = ({ children }) => {
   return (
     <div>

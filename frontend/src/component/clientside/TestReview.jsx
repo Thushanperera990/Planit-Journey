@@ -88,7 +88,7 @@ const TestReview = () => {
         review,
       };
       axios
-        .post("http://localhost:5000/testreview/add", formData)
+        .post("http://localhost:8090/testreview/add", formData)
         .then(() => {
           toast.success("Message sent successfully!", {
             position: "top-center",
