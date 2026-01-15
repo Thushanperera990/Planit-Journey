@@ -246,7 +246,7 @@ const LocMap = () => {
         const sendChatBtn = document.querySelector(".chat-input span");
 
         let userMessage = null; // Variable to store user's message
-        const API_KEY = "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"; // Paste your API key here
+        //const API_KEY = "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"; // Paste your API key here
         setHeight(chatInput.scrollHeight);
 
         const createChatLi = (message, className) => {
