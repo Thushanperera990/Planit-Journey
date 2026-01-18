@@ -177,7 +177,7 @@ const ContactUs = () => {
                   <h1 className="text-2xl font-semibold p-1">
                     Reach Us By Phone
                   </h1>
-                  <p className="p-1 text-xl">+1-2345-2345</p>
+                  <p className="p-1 text-xl">+94 12345678</p>
                 </td>
               </tr>
 
@@ -187,7 +187,7 @@ const ContactUs = () => {
                 </td>
                 <td style={th}>
                   <h1 className="text-2xl font-semibold p-2">Email</h1>
-                  <p className="p-1 text-xl">contact@campertheme.com</p>
+                  <p className="p-1 text-xl">contact@planit-journey.com</p>
                 </td>
               </tr>
 
@@ -198,7 +198,7 @@ const ContactUs = () => {
                 <td style={th}>
                   <h1 className="text-2xl font-semibold p-2">Address</h1>
                   <p className="p-1 text-xl">
-                    11086 Auahi St 170, Honolulu, HI 96814, United States
+                    No.165/32,Park road,Colombo 08.
                   </p>
                 </td>
               </tr>

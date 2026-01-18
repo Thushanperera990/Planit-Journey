@@ -31,11 +31,11 @@ const Hsection4 = () => {
                     {/* Content Column for the Right Side */}
                     <div className="col-lg-6 col-md-12">
                         <h1 className="display-5 fw-bold mb-4">
-                            Camper is the best way to find camping tours. Let’s make the most memorable adventures.
+                            Planit Journey is the best way to find tours. Let’s make the most memorable adventures.
                         </h1>
 
                         <p className="lead mb-4">
-                            Camper Tour is an incredible way to have an adventurous outdoor experience of world renowned national parks and wilderness destinations while hiking with only a light daypack and sleeping soundly in comfortable, vehicle-accessible camps.
+                            Planit Journey Tour is an incredible way to have an adventurous.It can search and explore destinations, attractions, accommodations, and dining options.
                         </p>
 
                         <div className="mt-4">

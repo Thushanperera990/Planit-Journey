@@ -1,32 +1,24 @@
 import React from 'react'
 
 const Hfotter = () => {
-
     const style = {
-        backgroundColor:"#171716",
-        height:"25vh"
+        backgroundColor:"#000000",
+        height:"20vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center"
     }
-
   return (
-
-    <div className='w-[100%] flex align-top justify-center items-center text-blue-50' style={style}>
-
-        <div className="menu block">
-            <ul className='flex align-middle justify-center gap-8 text-blue-50'>
-                <li className='hover:text-amber-400'>Customer support</li>
-                <li className='hover:text-amber-400'>Privacy & policy</li>
-                <li className='hover:text-amber-400'>About Us</li>
-                <li className='hover:text-amber-400'>Terms & conditions</li>
-            </ul>
-
-            <h2 className='text-center mt-5'>Copyright © 2024 All Rights Reserved.</h2>
+    <div className='w-full text-white' style={style}>
+        <div className='flex justify-center items-center gap-8'>
+            <span className='hover:text-amber-400 cursor-pointer'>Customer Support</span>
+            <span className='hover:text-amber-400 cursor-pointer'>Privacy & Policy</span>
+            <span className='hover:text-amber-400 cursor-pointer'>About Us</span>
+            <span className='hover:text-amber-400 cursor-pointer'>Terms & conditions</span>
         </div>
-
-       
-
-
+        <p className='text-center mt-4'>Copyright © 2025 All Rights Reserved.</p>
     </div>
-
   )
 }
 
