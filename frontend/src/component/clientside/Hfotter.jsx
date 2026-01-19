@@ -17,7 +17,7 @@ const Hfotter = () => {
             <span className='hover:text-amber-400 cursor-pointer'>About Us</span>
             <span className='hover:text-amber-400 cursor-pointer'>Terms & conditions</span>
         </div>
-        <p className='text-center mt-4'>Copyright © 2026 All Rights Reserved.</p>
+        <p className='text-center mt-4'>Copyright © 2025 All Rights Reserved.</p>
     </div>
   )
 }

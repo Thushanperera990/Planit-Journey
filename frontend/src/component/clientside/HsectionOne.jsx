@@ -39,7 +39,7 @@ const HsectionOne = () => {
 
         <div className="p-1">
           <h3 style={fontSize.f2}>
-             Discover the most beautiful places in Sri Lanka.
+            Discover the most beautiful places in Sri Lanka.
           </h3>
         </div>
 
