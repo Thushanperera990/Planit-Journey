@@ -104,7 +104,7 @@ const Register = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:8090/user/reg", {
+      const res = await fetch("http://localhost:5000/user/reg", {
         method: "post",
         headers: {
           "Content-Type": "application/json",

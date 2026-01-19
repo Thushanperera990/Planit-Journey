@@ -78,7 +78,7 @@ const LocMap = () => {
     useEffect(() => {
         const fetchData = async () => {
 
-            const response = await axios.get("http://localhost:8090/dest/getdest/" + id);
+            const response = await axios.get("http://localhost:5000/dest/getdest/" + id);
 
             setListPoints(response.data)
             setp1(response.data.points1)
@@ -472,7 +472,7 @@ const LocMap = () => {
                 </button>
 
                 <a href={mic2} download >
-                    <button id={`step1`} style={style.section3} className=' shake2  mb-6 bg-amber-400'><a href={`http://localhost:8090/Upload/images/` + listPoints.pdf} download ><img src={doc} alt="" width={50} /></a></button>
+                    <button id={`step1`} style={style.section3} className=' shake2  mb-6 bg-amber-400'><a href={`http://localhost:5000/Upload/images/` + listPoints.pdf} download ><img src={doc} alt="" width={50} /></a></button>
 
                 </a>
 

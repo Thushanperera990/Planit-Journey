@@ -13,7 +13,7 @@ const OneTourSection1 = () => {
   useEffect(() => {
     const fetchTour = async () => {
       try {
-        const response = await axios.get(`http://localhost:8090/tours/${id}`);
+        const response = await axios.get(`http://localhost:5000/tours/${id}`);
         setTour(response.data);
       } catch (error) {
         console.error("Error fetching tour:", error);
@@ -69,7 +69,7 @@ const OneTourSection1 = () => {
                 {tour.images && ( // Check if tour.images exists
                   <Link to={`/tours/${id}`}>
                     <img
-                      src={`http://localhost:8090/${tour.images}`} // Make sure tour.images is correctly accessed
+                      src={`http://localhost:5000/${tour.images}`} // Make sure tour.images is correctly accessed
                       alt="Main Tour Image"
                       className="img-fluid rounded shadow"
                       style={{ width: "100%", height: "450px" }}

@@ -12,7 +12,7 @@ const SingleBlog = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await axios.get(`http://localhost:8090/blogs/${id}`);
+        const response = await axios.get(`http://localhost:5000/blogs/${id}`);
         setBlog(response.data);
       } catch (error) {
         console.error("Error fetching blog:", error);

@@ -13,7 +13,7 @@ const View = () => {
 useEffect(() => {
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://localhost:8090/api/image/${id}`);
+      const response = await fetch(`http://localhost:5000/api/image/${id}`);
       if (!response.ok) {
         throw new Error("Failed to fetch image data");
       }
@@ -42,10 +42,10 @@ useEffect(() => {
       <div className="main-container">
         <SphereViewer
           imageUrl={
-            images.length > 0 ? `http://localhost:8090/${images[0]}` : ""
+            images.length > 0 ? `http://localhost:5000/${images[0]}` : ""
           }
-          imagePaths={images.map((path) => `http://localhost:8090/${path}`)}
-          musicPath={musicPath ? `http://localhost:8090/${musicPath}` : ""}
+          imagePaths={images.map((path) => `http://localhost:5000/${path}`)}
+          musicPath={musicPath ? `http://localhost:5000/${musicPath}` : ""}
         />
       </div>
       <Footer />

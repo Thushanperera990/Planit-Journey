@@ -35,7 +35,7 @@ const Reviews = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8090/testreview/read")
+      .get("http://localhost:5000/testreview/read")
       .then((res) => {
         setReviews(res.data);
       })

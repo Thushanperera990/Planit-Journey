@@ -11,7 +11,7 @@ function UserAllBookings({ userId }) {
   useEffect(() => {
     const fetchUserBookings = async () => {
       try {
-        const response = await axios.get(`http://localhost:8090/bookings/user/${userId}`);
+        const response = await axios.get(`http://localhost:5000/bookings/user/${userId}`);
         setBookings(response.data);
       } catch (error) {
         console.error("Error fetching user bookings:", error);
@@ -53,7 +53,7 @@ function UserAllBookings({ userId }) {
     const confirmDeletion = window.confirm("Are you sure you want to delete this booking?");
     if (confirmDeletion) {
       axios
-        .delete(`http://localhost:8090/bookings/${id}`)
+        .delete(`http://localhost:5000/bookings/${id}`)
         .then((res) => {
           if (res.status === 200) {
             setBookings(bookings.filter((booking) => booking._id !== id));
