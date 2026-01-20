@@ -409,7 +409,7 @@ const LocMap = () => {
 
             {/* <iframe id='boxBot'
                     src="https://www.chatbase.co/chatbot-iframe/ZPDiUfqgdQ8IgqBz4c63i"
-                    title="CAMPER"
+                    title="PLANIT JOURNEY"
                     width="100%"
                     style={{ width: "400px", height: "600px", position: "absolute", borderRadius: "12px", display: "none" }}
 

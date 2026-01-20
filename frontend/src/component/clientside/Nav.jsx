@@ -11,7 +11,7 @@ const Nav = () => {
       <div className="container">
         {/* LOGO */}
         <Link className="navbar-brand" to="/">
-          <img src={logo} alt="logo.png" width={80} className="object-contain" />
+          <img src={logo} alt="Planit Journey Logo Black Background White Text.png" width={80} className="object-contain" />
         </Link>
 
         {/* MOBILE MENU BUTTON (Hamburger) */}

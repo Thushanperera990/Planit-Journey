@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../../Images/logo.png";
+import logo from "../../Images/Planit Journey Logo Black Background White Text.png";
 import "../CSS/style.css";
 import { Link } from "react-router-dom";
 import { confirmAlert } from "react-confirm-alert"; // Importing confirm alert
@@ -29,7 +29,7 @@ const Dashboard = () => {
       className="Nav w-100 flex justify-between items-center px-5 p-4 bg-black text-gray-100 fixed top-0 left-0 right-0"
     >
       <div className="logo">
-        <img className="object-contain" src={logo} alt="logo.png" width={80} />
+        <img className="object-contain" src={logo} alt="Planit Journey Logo Black Background White Text.png" width={80} />
       </div>
 
       <div className="menu">

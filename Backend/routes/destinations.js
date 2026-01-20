@@ -179,7 +179,7 @@ router.route('/sendemail').post(async (req, res) => {
 
      <p>Contact Us : (94) 77 99 74368 </p>
      <p>Best regards,<br></p>
-     <p>© 2024 | All rights reserved | CAMPER </p>`
+     <p>© 2024 | All rights reserved | PLANIT JOURNEY </p>`
 
     };
 
