@@ -86,7 +86,7 @@ const ContactUs = () => {
                     </td>
                     <td>
                       <h3 className="text-2xl font-semibold">Phone</h3>
-                      <p className="text-lg">+1-2345-2345</p>
+                      <p className="text-lg">+94 12345678</p>
                     </td>
                   </tr>
 
@@ -96,7 +96,7 @@ const ContactUs = () => {
                     </td>
                     <td style={{ paddingTop: "30px" }}>
                       <h3 className="text-2xl font-semibold">Email</h3>
-                      <p className="text-lg">contact@campertheme.com</p>
+                      <p className="text-lg">contact@planit-journey.com</p>
                     </td>
                   </tr>
 
@@ -107,7 +107,7 @@ const ContactUs = () => {
                     <td style={{ paddingTop: "30px" }}>
                       <h3 className="text-2xl font-semibold">Address</h3>
                       <p className="text-lg">
-                        11086 Auahi St 170, Honolulu, HI 96814
+                        No.165/32,Park road,Colombo 08.
                       </p>
                     </td>
                   </tr>
