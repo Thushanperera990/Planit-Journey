@@ -51,10 +51,7 @@ const Dashboard = () => {
         <div className="collapse navbar-collapse" id="adminNavbar">
           <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
             <li className="nav-item px-2">
-              <Link to="/admin" className="nav-link text-white">Dashboard</Link>
-            </li>
-            <li className="nav-item px-2">
-              <Link to="/alltours" className="nav-link text-white">Tours</Link>
+              <Link to="/alltours" className="nav-link text-white">Tours & Destinations</Link>
             </li>
             <li className="nav-item px-2">
               <Link to="/AllBlog" className="nav-link text-white">Blogs</Link>
