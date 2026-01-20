@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../Images/Planit Journey Logo Transparent (1).png";
+import logo from "../../Images/Planit Journey Logo Black Background White Text.png";
 import "../CSS/style.css";
 import { Link } from "react-router-dom";
 
