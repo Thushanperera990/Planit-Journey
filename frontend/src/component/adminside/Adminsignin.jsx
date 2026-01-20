@@ -1,91 +1,100 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 
-function AdminSignIn() {
-  const [error, setError] = useState(null);
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+const AddUserForm = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null);
 
     try {
-      const response = await axios.post("http://localhost:5000/admins/login", {
+      const response = await axios.post("http://localhost:5000/admins/reg", {
         username,
         password,
+        role,
       });
 
-      if (response.data.message === "Success") {
-        const role = response.data.role;
-
-        // --- PROPER ROLE-BASED REDIRECTION ---
-        if (role === "client_mgr") {
-          window.location.href = "/clientsdetails";
-        } else if (role === "blog_mgr") {
-          window.location.href = "/AllBlog";
-        } else if (role === "tour_mgr") {
-          window.location.href = "/alltours";
-        } else if (role === "admin") {
-          window.location.href = "/admin"; // Dashboard
-        } else {
-          // Default redirect for other managers
-          window.location.href = "/admin"; 
-        }
-      }
+      // If backend returns { message: "Admin added successfully" }
+      alert("✅ Success: " + (response.data.message || response.data));
+      
+      setUsername("");
+      setPassword("");
+      setRole("");
     } catch (error) {
-      console.error("Login error:", error);
-      setError(error.response?.data?.error || "Invalid username or password");
+      console.error("Error adding user:", error);
+      // Access the specific error message from your backend
+      const errorMsg = error.response?.data?.error || "An error occurred";
+      alert("❌ Error: " + errorMsg);
     }
   };
 
   return (
     <div className="flex items-center justify-center h-screen bg-gray-50">
-      <form 
-        onSubmit={handleSubmit} 
+      <form
+        onSubmit={handleSubmit}
         className="w-full max-w-md p-8 bg-white rounded-xl shadow-xl border-t-8 border-[#f8c12a] shake2"
       >
-        <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold uppercase tracking-widest text-gray-800">Admin Login</h2>
-          <p className="text-gray-500 text-sm">Planit Journey Management Portal</p>
+        <h2 className="text-2xl font-extrabold mb-6 text-center uppercase tracking-wider text-gray-800">
+          Add New Admin
+        </h2>
+
+        <div className="mb-4">
+          <label className="block text-gray-700 text-xs font-bold mb-2 uppercase tracking-widest">
+            Username
+          </label>
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f8c12a]"
+            placeholder="Enter username"
+            required
+          />
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2 text-xs uppercase">Username</label>
+          <label className="block text-gray-700 text-xs font-bold mb-2 uppercase tracking-widest">
+            Temporary Password
+          </label>
           <input
-            type="text"
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
-            placeholder="Enter username"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f8c12a]"
+            placeholder="••••••••"
             required
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
           />
         </div>
 
         <div className="mb-6">
-          <label className="block text-gray-700 font-bold mb-2 text-xs uppercase">Password</label>
-          <input
-            type="password"
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
-            placeholder="Enter password"
+          <label className="block text-gray-700 text-xs font-bold mb-2 uppercase tracking-widest">
+            Assign Role
+          </label>
+          <select
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+            className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f8c12a] bg-white"
             required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          >
+            <option value="" disabled>Select Role</option>
+            <option value="tour_mgr">Tour Manager</option>
+            <option value="client_mgr">Client Manager</option>
+            <option value="blog_mgr">Blog Manager</option>
+            <option value="review_mgr">Review Manager</option>
+            <option value="care_mgr">Care Manager</option>
+            <option value="vtour_mgr">Vtour Manager</option>
+          </select>
         </div>
 
-        {error && (
-          <div className="text-red-500 bg-red-50 p-2 rounded mb-4 text-center text-sm border border-red-100">
-            {error}
-          </div>
-        )}
-
-        <button type="submit" className="btn-yellow w-full py-3 shadow-md uppercase font-bold tracking-widest">
-          Login to Dashboard
+        {/* Using your custom brand button class */}
+        <button type="submit" className="btn-yellow w-full py-3">
+          Create Admin Account
         </button>
       </form>
     </div>
   );
-}
+};
 
-export default AdminSignIn;
+export default AddUserForm;
