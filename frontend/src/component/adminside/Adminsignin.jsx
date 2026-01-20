@@ -8,62 +8,80 @@ function AdminSignIn() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null);
 
     try {
       const response = await axios.post("http://localhost:5000/admins/login", {
         username,
         password,
       });
-      console.log(response);
 
       if (response.data.message === "Success") {
-        if (response.data.role === "client_mgr") {
-          window.location.href = "/clientsdetails"; // Redirect to clientsdetails page for client managers
-        }  else {
-          setError("Invalid role");
+        const role = response.data.role;
+
+        // --- PROPER ROLE-BASED REDIRECTION ---
+        if (role === "client_mgr") {
+          window.location.href = "/clientsdetails";
+        } else if (role === "blog_mgr") {
+          window.location.href = "/AllBlog";
+        } else if (role === "tour_mgr") {
+          window.location.href = "/alltours";
+        } else if (role === "admin") {
+          window.location.href = "/admin"; // Dashboard
+        } else {
+          // Default redirect for other managers
+          window.location.href = "/admin"; 
         }
-      } else {
-        setError("Invalid username or password");
       }
     } catch (error) {
-      console.log(error);
-      setError("An error occurred while processing your request");
+      console.error("Login error:", error);
+      setError(error.response?.data?.error || "Invalid username or password");
     }
   };
+
   return (
-    <div className="flex items-center justify-center h-screen">
-      <form onSubmit={handleSubmit} className="w-1/3 p-6 bg-gray-100 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-semibold mb-4 text-center">Login</h2>
+    <div className="flex items-center justify-center h-screen bg-gray-50">
+      <form 
+        onSubmit={handleSubmit} 
+        className="w-full max-w-md p-8 bg-white rounded-xl shadow-xl border-t-8 border-[#f8c12a] shake2"
+      >
+        <div className="text-center mb-6">
+          <h2 className="text-2xl font-bold uppercase tracking-widest text-gray-800">Admin Login</h2>
+          <p className="text-gray-500 text-sm">Planit Journey Management Portal</p>
+        </div>
+
         <div className="mb-4">
-          <label htmlFor="username" className="block text-gray-700 font-bold mb-2">Username</label>
+          <label className="block text-gray-700 font-bold mb-2 text-xs uppercase">Username</label>
           <input
             type="text"
-            id="username"
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
             placeholder="Enter username"
             required
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
-        <div className="mb-4">
-          <label htmlFor="password" className="block text-gray-700 font-bold mb-2">Password</label>
+
+        <div className="mb-6">
+          <label className="block text-gray-700 font-bold mb-2 text-xs uppercase">Password</label>
           <input
             type="password"
-            id="password"
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
             placeholder="Enter password"
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        {error && <div className="text-red-500 mb-4">{error}</div>}
-        <button
-          type="submit"
-          className="w-full bg-yellow-500 text-white font-bold py-2 px-4 rounded hover:bg-yellow-600 focus:outline-none focus:bg-yellow-600"
-        >
-          Login
+
+        {error && (
+          <div className="text-red-500 bg-red-50 p-2 rounded mb-4 text-center text-sm border border-red-100">
+            {error}
+          </div>
+        )}
+
+        <button type="submit" className="btn-yellow w-full py-3 shadow-md uppercase font-bold tracking-widest">
+          Login to Dashboard
         </button>
       </form>
     </div>

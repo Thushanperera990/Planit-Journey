@@ -2,7 +2,7 @@
 
 const express = require("express");
 const router = express.Router();
-const admins = require("../models/admins");
+const admins = require("../models/Admin");
 const jwt = require('jsonwebtoken');
 
 router.post("/reg", async (req, res) => {
@@ -23,7 +23,7 @@ router.post("/reg", async (req, res) => {
     await newAdmin.save();
 
     // Respond with success message
-    res.json("Admin added successfully");
+    res.status(201).json({ message: "Admin added successfully" });
   } catch (error) {
     // Log the error
     console.error("Error adding admin:", error);

@@ -26,6 +26,7 @@ mongoose.connect(MONGO_URI)
 
 // Import all routes (ONLY ONCE EACH)
 const userRoutes = require('./routes/user');
+const adminRoutes = require('./routes/admin');
 const tourRoutes = require('./routes/tours'); 
 const blogRoutes = require('./routes/blogs'); 
 const destinationRoutes = require('./routes/destinations'); 
@@ -33,6 +34,7 @@ const testReviewRoutes = require('./routes/testreview');
 
 // Connect the routes to the app
 app.use('/api/users', userRoutes);
+app.use('/admins', adminRoutes);
 app.use('/tours', tourRoutes); 
 app.use('/blogs', blogRoutes);
 app.use('/destinations', destinationRoutes);
