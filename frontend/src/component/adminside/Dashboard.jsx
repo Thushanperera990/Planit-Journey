@@ -15,7 +15,7 @@ const Dashboard = () => {
           label: 'Yes',
           onClick: () => {
             localStorage.removeItem("token");
-            window.location.href = "/adminsignin"; 
+            window.location.href = "/adminlog"; 
           }
         },
         {
@@ -55,9 +55,6 @@ const Dashboard = () => {
             </li>
             <li className="nav-item px-2">
               <Link to="/alltours" className="nav-link text-white">Tours</Link>
-            </li>
-            <li className="nav-item px-2">
-              <Link to="/bookings" className="nav-link text-white">Bookings</Link>
             </li>
             <li className="nav-item px-2">
               <Link to="/AllBlog" className="nav-link text-white">Blogs</Link>
