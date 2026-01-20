@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // CLIENT SIDE IMPORTS
+// Note: Ensure your physical folder is named "component" (all lowercase)
 import Home from "./component/clientside/Home";
 import Register from "./component/clientside/Register";
 import Login from "./component/clientside/Login";
@@ -23,8 +24,8 @@ import UserAllBookings from "./component/clientside/UserAllBookings";
 
 // ADMIN SIDE IMPORTS
 import Dashboard from "./component/adminside/Dashboard";
-import AdminSignIn from "./component/adminside/Adminsignin"; // Check if it's AdminSignIn or Adminsignin
-import AdminLog from "./component/adminside/adminlog";
+import AdminSignIn from "./component/adminside/Adminsignin"; 
+import AdminLog from "./component/adminside/adminlog"; 
 import AllTours from "./component/adminside/AllTours";
 import AddTours from "./component/adminside/AddTours";
 import UpdateTours from "./component/adminside/UpdateTours";
