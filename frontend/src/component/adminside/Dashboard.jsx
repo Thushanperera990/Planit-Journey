@@ -1,14 +1,11 @@
 import React from "react";
 import logo from "../../Images/Planit Journey Logo Black Background White Text.png";
 import "../CSS/style.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { confirmAlert } from "react-confirm-alert"; 
 import "react-confirm-alert/src/react-confirm-alert.css"; 
 
 const Dashboard = () => {
-  const navigate = useNavigate();
-  const isLoggedIn = localStorage.getItem("token");
-
   const handleLogout = () => {
     confirmAlert({
       title: 'Confirm Logout',
@@ -32,9 +29,12 @@ const Dashboard = () => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-black fixed-top shadow" style={{ zIndex: "9999" }}>
       <div className="container-fluid px-4">
         {/* LOGO */}
-        <Link className="navbar-brand" to="/admin">
+        <Link className="navbar-brand d-flex align-items-center" to="/admin">
           <img src={logo} alt="Planit Journey Logo" width={70} className="object-contain" />
-          <span className="ms-2 text-xs uppercase tracking-widest text-warning">Admin Panel</span>
+          <div className="ms-3 border-start ps-3 border-secondary">
+             <h1 className="m-0 p-0 text-white fs-5 fw-bold uppercase tracking-tight">Admin</h1>
+             <p className="m-0 p-0 text-warning opacity-75" style={{ fontSize: '10px', letterSpacing: '2px' }}>DASHBOARD</p>
+          </div>
         </Link>
 
         {/* MOBILE MENU BUTTON */}
@@ -43,8 +43,6 @@ const Dashboard = () => {
           type="button" 
           data-bs-toggle="collapse" 
           data-bs-target="#adminNavbar" 
-          aria-controls="adminNavbar" 
-          aria-expanded="false" 
         >
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -78,23 +76,15 @@ const Dashboard = () => {
             </li>
           </ul>
 
-          {/* LOGOUT / PROFILE SECTION */}
+          {/* ACTIONS */}
           <div className="d-flex align-items-center gap-3">
-            {isLoggedIn && (
-               <Link to="/adminLog" className="text-warning text-decoration-none text-xs fw-bold border border-warning px-2 py-1 rounded hover:bg-warning hover:text-black transition">
-                 + NEW ADMIN
-               </Link>
-            )}
+            <Link to="/adminLog" className="btn btn-outline-warning btn-sm fw-bold">
+              + ADD ADMIN
+            </Link>
             
-            {isLoggedIn ? (
-              <button onClick={handleLogout} className="btn btn-warning px-4 rounded fw-bold">
-                Log Out
-              </button>
-            ) : (
-              <Link to="/adminsignin" className="btn btn-warning px-4 rounded fw-bold">
-                Log In
-              </Link>
-            )}
+            <button onClick={handleLogout} className="btn btn-warning px-4 rounded fw-bold text-black">
+              LOG OUT
+            </button>
           </div>
         </div>
       </div>
