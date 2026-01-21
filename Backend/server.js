@@ -33,7 +33,7 @@ const virtualTourRoutes = require('./routes/virtualtours');
 const destinationRoutes = require('./routes/destinations'); 
 const testReviewRoutes = require('./routes/testreview'); 
 const path = require('path');
-const contactRouter = require("./routes/contactUs");
+const contactRouter = require("./routes/contactus");
 
 // Connect the routes to the app
 app.use('/api/users', userRoutes);
@@ -41,11 +41,12 @@ app.use('/admins', adminRoutes);
 app.use('/tours', tourRoutes); 
 app.use('/blogs', blogRoutes);
 app.use('/api/images', destinationRoutes);
-app.use('/addvirtualtour', virtualTourRoutes);
+app.use('/api/virtualtours', virtualTourRoutes);
 app.use('/destinations', destinationRoutes);
 app.use('/testreview', testReviewRoutes); 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-app.use("/api/contacts", contactRouter);
+app.use("/api/contactus", contactRouter);
+app.use('/Upload', express.static(path.join(__dirname, 'Upload')));
 // 7. Basic Test Route
 app.get('/', (req, res) => {
   res.send('Planit Journey API Status: Running and ready for development.');
