@@ -82,6 +82,16 @@ const storage = multer.diskStorage({
     }
 });
 
+// This handles the "all" part of /api/images/all
+router.route('/all').get(async (req, res) => {
+    try {
+        const allDestinations = await dest.find(); 
+        res.status(200).json(allDestinations); // Returns the array to the frontend
+    } catch (err) {
+        console.error("Error in /all route:", err);
+        res.status(500).json({ message: "Server error fetching destinations" });
+    }
+});
 const upload = multer({ storage: storage });
 
 //update pdf

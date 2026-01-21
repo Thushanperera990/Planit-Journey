@@ -40,6 +40,7 @@ app.use('/api/users', userRoutes);
 app.use('/admins', adminRoutes);
 app.use('/tours', tourRoutes); 
 app.use('/blogs', blogRoutes);
+app.use('/api/images', destinationRoutes);
 app.use('/addvirtualtour', virtualTourRoutes);
 app.use('/destinations', destinationRoutes);
 app.use('/testreview', testReviewRoutes); 
