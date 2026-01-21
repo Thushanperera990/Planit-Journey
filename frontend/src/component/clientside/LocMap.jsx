@@ -78,7 +78,7 @@ const LocMap = () => {
     useEffect(() => {
         const fetchData = async () => {
 
-            const response = await axios.get("http://localhost:8090/dest/getdest/" + id);
+            const response = await axios.get("http://localhost:5000/dest/getdest/" + id);
 
             setListPoints(response.data)
             setp1(response.data.points1)
@@ -409,7 +409,7 @@ const LocMap = () => {
 
             {/* <iframe id='boxBot'
                     src="https://www.chatbase.co/chatbot-iframe/ZPDiUfqgdQ8IgqBz4c63i"
-                    title="CAMPER"
+                    title="PLANIT JOURNEY"
                     width="100%"
                     style={{ width: "400px", height: "600px", position: "absolute", borderRadius: "12px", display: "none" }}
 
@@ -472,7 +472,7 @@ const LocMap = () => {
                 </button>
 
                 <a href={mic2} download >
-                    <button id={`step1`} style={style.section3} className=' shake2  mb-6 bg-amber-400'><a href={`http://localhost:8090/Upload/images/` + listPoints.pdf} download ><img src={doc} alt="" width={50} /></a></button>
+                    <button id={`step1`} style={style.section3} className=' shake2  mb-6 bg-amber-400'><a href={`http://localhost:5000/Upload/images/` + listPoints.pdf} download ><img src={doc} alt="" width={50} /></a></button>
 
                 </a>
 

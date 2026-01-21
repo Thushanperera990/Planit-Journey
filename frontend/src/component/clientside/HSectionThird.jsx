@@ -8,61 +8,56 @@ const HSectionThird = () => {
 
     const addImg = {
         width: "100%",
-        height: "80vh",
+        minHeight: "80vh",
         backgroundImage: `url(${Img})`,
         backgroundSize: "cover",
-        backgroundPosition: "top"
+        backgroundPosition: "top",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
     }
 
-
     return (
+        <div style={addImg} className="py-5">
+            <div className="container">
+                <div className="row g-4 justify-content-center text-dark">
 
-        <div className='flex items-center justify-center  text-gray-100' style={addImg}>
-
-
-            <div className="main-block grid grid-cols-3 gap-5 text-black w-[90%] ">
-
-                <div className="block-1 block items-center justify-center text-center m-2">
-
-                    <div className="block-img flex items-center justify-center p-3">
-                        <img src={Img1} alt="" width={140} className='' />
+                    {/* Block 1 */}
+                    <div className="col-md-4">
+                        <div className="p-4 text-center h-100">
+                            <div className="d-flex justify-content-center p-3">
+                                <img src={Img1} alt="Experience" width={140} />
+                            </div>
+                            <h2 className="fs-4 fw-bold p-2 text-dark">15 Years of Experiences</h2>
+                            <p className="fs-6 text-dark">Host our community of good-natured campers, glampers, and RV travelers on your land or at your cabin.</p>
+                        </div>
                     </div>
 
-                    <h1 className='text-2xl font-semibold p-2'>15 Years of Experiences</h1>
-
-                    <p className='p-1 text-xl'>Host our community of good-natured campers, glampers, and RV travelers on your land or at your cabin.</p>
-
-                </div>
-
-                <div className="block-1 block items-center justify-center text-center  m-2">
-
-                    <div className="block-img flex items-center justify-center p-3">
-                        <img src={Img2} alt="" width={140} className='' />
+                    {/* Block 2 */}
+                    <div className="col-md-4">
+                        <div className="p-4 text-center h-100">
+                            <div className="d-flex justify-content-center p-3">
+                                <img src={Img2} alt="Camps" width={140} />
+                            </div>
+                            <h2 className="fs-4 fw-bold p-2 text-dark">200+ Camps To Visit</h2>
+                            <p className="fs-6 text-dark">Host our community of good-natured campers, glampers, and RV travelers on your land or at your cabin.</p>
+                        </div>
                     </div>
 
-                    <h1 className='text-2xl font-semibold p-2'>200+ Camps To Visit</h1>
-
-                    <p className='p-1 text-xl'>Host our community of good-natured campers, glampers, and RV travelers on your land or at your cabin.</p>
-
-                </div>
-
-                <div className="block-1 block items-center justify-center text-center  m-2">
-
-                    <div className="block-img flex items-center justify-center p-3">
-                        <img src={Img3} alt="" width={140} className='' />
+                    {/* Block 3 */}
+                    <div className="col-md-4">
+                        <div className="p-4 text-center h-100">
+                            <div className="d-flex justify-content-center p-3">
+                                <img src={Img3} alt="Community" width={140} />
+                            </div>
+                            <h2 className="fs-4 fw-bold p-2 text-dark">Big Community</h2>
+                            <p className="fs-6 text-dark">Host our community of good-natured campers, glampers, and RV travelers on your land or at your cabin.</p>
+                        </div>
                     </div>
 
-                    <h1 className='text-2xl font-semibold p-2'>Big Community</h1>
-
-                    <p className='p-1 text-xl'>Host our community of good-natured campers, glampers, and RV travelers on your land or at your cabin.</p>
-
                 </div>
-
             </div>
-
-
         </div>
-
     )
 }
 

@@ -42,7 +42,7 @@ const AddVirtualTour = () => {
       }
 
       const response = await axios.post(
-        "http://localhost:5000/api/images/upload",
+        "http://localhost:5000/addvirtualtour",
         formData,
         {
           headers: {

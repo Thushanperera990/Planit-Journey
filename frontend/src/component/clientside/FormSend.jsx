@@ -10,7 +10,7 @@ const FormSend = () => {
         alert(name + " " + age);
         e.preventDefault();
         
-        axios.post("http://localhost:8090/test/add", {name, age}).then(() => {
+        axios.post("http://localhost:5000/test/add", {name, age}).then(() => {
             alert("OK");
         }).catch((err) => {
             alert("Not")

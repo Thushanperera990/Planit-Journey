@@ -61,7 +61,7 @@ const SphereViewer = ({ imageUrl, imagePaths, musicPath }) => {
               id: `pano-${index}`,
               name: `Image ${index + 1}`,
               panorama: path,
-              thumbnail: path, //`http://localhost:8090/thumbnails/${path}`
+              thumbnail: path, //`http://localhost:5000/thumbnails/${path}`
             })),
           },
         ],

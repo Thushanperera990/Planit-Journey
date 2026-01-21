@@ -26,18 +26,25 @@ mongoose.connect(MONGO_URI)
 
 // Import all routes (ONLY ONCE EACH)
 const userRoutes = require('./routes/user');
+const adminRoutes = require('./routes/admin');
 const tourRoutes = require('./routes/tours'); 
 const blogRoutes = require('./routes/blogs'); 
+const virtualTourRoutes = require('./routes/virtualtours');
 const destinationRoutes = require('./routes/destinations'); 
 const testReviewRoutes = require('./routes/testreview'); 
+const path = require('path');
+const contactRouter = require("./routes/contactUs");
 
 // Connect the routes to the app
 app.use('/api/users', userRoutes);
+app.use('/admins', adminRoutes);
 app.use('/tours', tourRoutes); 
 app.use('/blogs', blogRoutes);
+app.use('/addvirtualtour', virtualTourRoutes);
 app.use('/destinations', destinationRoutes);
 app.use('/testreview', testReviewRoutes); 
-
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use("/api/contacts", contactRouter);
 // 7. Basic Test Route
 app.get('/', (req, res) => {
   res.send('Planit Journey API Status: Running and ready for development.');

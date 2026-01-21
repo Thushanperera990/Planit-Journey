@@ -1,119 +1,108 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate, Link } from 'react-router-dom';
+import { Home } from 'lucide-react'; // Import Home icon
 
-const AddUserForm = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
+function AdminSignIn() {
+  const [error, setError] = useState(null);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null);
 
     try {
-      // Send a POST request backend API to add the user
-      const response = await axios.post("http://localhost:5000/admins/reg", {
+      const response = await axios.post("http://localhost:5000/admins/login", {
         username,
         password,
-        role,
       });
 
-      // Log the response data
-      console.log("Response:", response.data);
+      if (response.data.message === "Success") {
+        const role = response.data.role;
 
-      // Reset form fields after successful submission
-      setUsername("");
-      setPassword("");
-      setRole("");
-
-      // Display a success message to the user (optional)
-      alert("Admin added successfully!");
+        // Role-based redirection
+        if (role === "client_mgr") {
+          navigate("/clientsdetails");
+        } else if (role === "blog_mgr") {
+          navigate("/AllBlog");
+        } else if (role === "tour_mgr") {
+          navigate("/alltours");
+        } else {
+          navigate("/admin"); 
+        }
+      }
     } catch (error) {
-      // Handle errors
-      console.error("Error adding user:", error);
-      // Display an error message to the user (optional)
-      alert(
-        "An error occurred while adding the user. Please try again later."
-      );
+      console.error("Login error:", error);
+      setError(error.response?.data?.error || "Invalid username or password");
     }
   };
 
   return (
-    <div className="flex items-center justify-center h-screen">
-      <form
-        onSubmit={handleSubmit}
-        className="w-1/3 p-6 bg-gray-100 rounded-lg shadow-lg"
+    <div className="relative flex items-center justify-center h-screen bg-gray-50 font-sans">
+      
+      {/* --- HOME BUTTON --- */}
+      <Link 
+        to="/" 
+        className="absolute top-8 left-8 flex items-center gap-2 text-gray-500 hover:text-amber-500 transition-colors group"
       >
-        <h2 className="text-2xl font-semibold mb-4 text-center">
-          Add a new Admin
-        </h2>
-        <div className="mb-4">
-          <label
-            htmlFor="username"
-            className="block text-gray-700 font-bold mb-2"
-          >
-            Username
-          </label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
-            placeholder="Enter username"
-            required
-          />
+        <div className="p-2 bg-white rounded-full shadow-sm group-hover:shadow-md transition-all">
+          <Home size={18} />
         </div>
-        <div className="mb-4">
-          <label
-            htmlFor="password"
-            className="block text-gray-700 font-bold mb-2"
-          >
-            Temporarily Password
-          </label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
-            placeholder="Temporary Password"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            htmlFor="role"
-            className="block text-gray-700 font-bold mb-2"
-          >
-            Role
-          </label>
-          <select
-            id="role"
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
-            required
-          >
-            <option value="" disabled>
-              Select Role
-            </option>
-            <option value="tour_mgr">Tour_Mgr</option>
-            <option value="client_mgr">Client_Mgr</option>
-            <option value="blog_mgr">Blog_Mgr</option>
-            <option value="review_mgr">Review_Mgr</option>
-            <option value="care_mgr">Care_Mgr</option>
-            <option value="vtour_mgr">Vtour_Mgr</option>
-          </select>
+        <span className="text-xs font-bold uppercase tracking-widest">Back to Homepage</span>
+      </Link>
+
+      <form 
+        onSubmit={handleSubmit} 
+        className="w-full max-w-md p-8 bg-white rounded-xl shadow-xl border-t-8 border-[#f39c12]"
+      >
+        <div className="text-center mb-8">
+          <h2 className="text-2xl font-bold uppercase tracking-tighter text-gray-800">Admin Login</h2>
+          <div className="w-12 h-1 bg-amber-500 mx-auto mt-2 mb-2"></div>
+          <p className="text-gray-400 text-[10px] uppercase tracking-widest font-bold">Portal Management</p>
         </div>
 
-        <button
-          className="w-full bg-yellow-500 text-white font-bold py-2 px-4 rounded hover:bg-yellow-600 focus:outline-none focus:bg-yellow-600"
+        <div className="mb-4">
+          <label className="block text-gray-600 font-bold mb-2 text-[10px] uppercase tracking-widest">Username</label>
+          <input
+            type="text"
+            className="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all"
+            placeholder="Admin username"
+            required
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+
+        <div className="mb-6">
+          <label className="block text-gray-600 font-bold mb-2 text-[10px] uppercase tracking-widest">Password</label>
+          <input
+            type="password"
+            className="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all"
+            placeholder="••••••••"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+
+        {error && (
+          <div className="text-red-500 bg-red-50 p-3 rounded-md mb-6 text-center text-xs font-bold border border-red-100 uppercase tracking-tight">
+            {error}
+          </div>
+        )}
+
+        <button 
+          type="submit" 
+          className="w-full py-4 bg-[#f39c12] hover:bg-yellow text-black shadow-lg uppercase 
+          font-bold tracking-[0.2em] text-xs transition-all transform hover:-translate-y-1"
         >
-          Add Admin
+          Log as Admin
         </button>
       </form>
     </div>
   );
-};
+}
 
-export default AddUserForm;
+export default AdminSignIn;

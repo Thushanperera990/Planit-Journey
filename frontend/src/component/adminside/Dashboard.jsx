@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../../Images/logo.png";
+import logo from "../../Images/Planit Journey Logo Black Background White Text.png";
 import "../CSS/style.css";
 import { Link } from "react-router-dom";
 import { confirmAlert } from "react-confirm-alert"; // Importing confirm alert
@@ -35,18 +35,8 @@ const Dashboard = () => {
       <div className="menu">
         <ul className="flex justify-between items-center " id="menu">
           <li className="px-4">
-            <Link to="/admin" className="hover:text-yellow-400 text-lg">
-              Dashboard
-            </Link>
-          </li>
-          <li className="px-4">
             <Link to="/alltours" className="hover:text-yellow-400 text-lg">
               Tours & Destinations
-            </Link>
-          </li>
-          <li className="px-4">
-            <Link to="/bookings" className="hover:text-yellow-400 text-lg">
-              Bookings
             </Link>
           </li>
           <li className="px-4">

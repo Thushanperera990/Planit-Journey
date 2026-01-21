@@ -11,7 +11,7 @@ const Tours = () => {
 
   const fetchTours = async () => {
     try {
-      const response = await axios.get("http://localhost:8090/tours");
+      const response = await axios.get("http://localhost:5000/tours");
       setTours(response.data);
     } catch (error) {
       console.error("Error fetching tours:", error);
@@ -72,7 +72,7 @@ const Tours = () => {
                   <div className="col">
                     <Link to={`/tours/${tour._id}`}>
                       <img
-                        src={`http://localhost:8090/${tour.images}`}
+                        src={`http://localhost:5000/${tour.images}`}
                         alt="Tour Image"
                         className="img-fluid"
                         style={{

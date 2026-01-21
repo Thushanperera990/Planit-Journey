@@ -70,7 +70,7 @@ const PaymentPage = () => {
   const [tour, setTour] = useState('');
 
   useEffect(() => {
-    axios.get(`http://localhost:8090/tours/${id}`).then((res) => { setTour(res.data) })
+    axios.get(`http://localhost:5000/tours/${id}`).then((res) => { setTour(res.data) })
   })
 
 
@@ -220,7 +220,7 @@ const PaymentPage = () => {
 
     try {
       console.log("Submitting booking data:", bookingData);
-      const response = await axios.post('http://localhost:8090/bookings', bookingData);
+      const response = await axios.post('http://localhost:5000/bookings', bookingData);
       sendMail();
       console.log("Booking created:", response.data);
 
@@ -279,7 +279,7 @@ const PaymentPage = () => {
       id: id
     }
 
-    axios.post('http://localhost:8090/dest/sendemail', data).then((res) => {
+    axios.post('http://localhost:5000/dest/sendemail', data).then((res) => {
       Notify();
     }).catch((err) => {
       alert("Error in sending email");

@@ -26,7 +26,7 @@ const HomeBSlide = () => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8090/blogs")
+    axios.get("http://localhost:5000/blogs")
       .then((res) => {
         setBlogs(res.data);
       })
