@@ -1,70 +1,86 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../Images/Planit Journey Logo Black Background White Text.png";
 import "../CSS/style.css";
 import { Link } from "react-router-dom";
+import { confirmAlert } from "react-confirm-alert"; // Importing confirm alert
+import "react-confirm-alert/src/react-confirm-alert.css"; // Importing confirm alert styles
 
 const Nav = () => {
+  const style = {
+    menu: {
+      backgroundColor: "red", // Fixed typo
+      color: "white",
+    },
+    button: {
+      backgroundColor: "red",
+    },
+    nav: {
+      zIndex: "9999",
+    },
+  };
+
+
+
   const isLoggedIn = localStorage.getItem("token");
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-black fixed-top shadow" style={{ zIndex: "9999" }}>
-      <div className="container">
-        {/* LOGO */}
-        <Link className="navbar-brand" to="/">
-          <img src={logo} alt="Planit Journey Logo Black Background White Text.png" width={80} className="object-contain" />
-        </Link>
-
-        {/* MOBILE MENU BUTTON (Hamburger) */}
-        <button 
-          className="navbar-toggler" 
-          type="button" 
-          data-bs-toggle="collapse" 
-          data-bs-target="#navbarNav" 
-          aria-controls="navbarNav" 
-          aria-expanded="false" 
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        {/* MENU LINKS */}
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav mx-auto mb-2 mb-lg-0"> {/* mx-auto centers the links */}
-            <li className="nav-item px-3">
-              <Link to="/" className="nav-link text-white text-lg">Home</Link>
-            </li>
-            <li className="nav-item px-3">
-              <Link to="/tours" className="nav-link text-white text-lg">Tour List</Link>
-            </li>
-            <li className="nav-item px-3">
-              <Link to="/virtualtours" className="nav-link text-white text-lg">Virtual Tours</Link>
-            </li>
-            <li className="nav-item px-3">
-              <Link to="/contactUs" className="nav-link text-white text-lg">Contact Us</Link>
-            </li>
-            <li className="nav-item px-3">
-              <Link to="/blogs" className="nav-link text-white text-lg">Blog</Link>
-            </li>
-            <li className="nav-item px-3">
-              <Link to="/reviews" className="nav-link text-white text-lg">Review List</Link>
-            </li>
-          </ul>
-
-          {/* LOGIN / PROFILE BUTTON */}
-          <div className="d-flex align-items-center">
-            {isLoggedIn ? (
-              <Link to="/profile" className="btn btn-warning px-4 rounded fw-bold">
-                Profile
-              </Link>
-            ) : (
-              <Link to="/login" className="btn btn-warning px-4 rounded fw-bold">
-                Log In
-              </Link>
-            )}
-          </div>
-        </div>
+    <div
+      style={style.nav}
+      className="Nav w-100 flex justify-between items-center px-5 p-4 bg-black text-gray-100 fixed top-0 left-0 right-0"
+    >
+      <div className="logo">
+        <img className="object-contain" src={logo} alt="logo.png" width={80} />
       </div>
-    </nav>
+
+      <div className="menu">
+        <ul className="flex justify-between items-center " id="menu">
+          <li className="px-4">
+            <Link to="/" className="hover:text-yellow-400 text-lg">
+              Home
+            </Link>
+          </li>
+          <li className="px-4">
+            <Link to="/tours" className="hover:text-yellow-400 text-lg">
+              Tour List
+            </Link>
+          </li>
+          <li className="px-4">
+            <Link to="/virtualtours" className="hover:text-yellow-400 text-lg">
+              Virtual Tours
+            </Link>
+          </li>
+          <li className="px-4">
+            <Link to="/contactUs" className="hover:text-yellow-400 text-lg">
+              Contact Us
+            </Link>
+          </li>
+          <li className="px-4">
+            <Link to="/blogs" className="hover:text-yellow-400 text-lg">
+              Blog
+            </Link>
+          </li>
+          <li className="px-4">
+            <Link to="/reviews" className="hover:text-yellow-400 text-lg">
+              Review List
+            </Link>
+          </li>
+        </ul>
+      </div>
+
+      {isLoggedIn ? (
+        <div className="side-button w-24 h-12 flex justify-center items-center rounded bg-amber-500">
+          <Link to="/profile" className="text-lg p-2">
+           Profile
+          </Link>
+        </div>
+      ) : (
+        <div className="side-button w-24 h-12 flex justify-center items-center rounded bg-amber-500">
+          <Link to="/login" className="text-lg p-2">
+            Log In
+          </Link>
+        </div>
+      )}
+    </div>
   );
 };
 

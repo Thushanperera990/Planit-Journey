@@ -1,88 +1,92 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../Images/Planit Journey Logo Black Background White Text.png";
 import "../CSS/style.css";
 import { Link } from "react-router-dom";
-import { confirmAlert } from "react-confirm-alert"; 
-import "react-confirm-alert/src/react-confirm-alert.css"; 
+import { confirmAlert } from "react-confirm-alert"; // Importing confirm alert
+import "react-confirm-alert/src/react-confirm-alert.css"; // Importing confirm alert styles
 
 const Dashboard = () => {
-  const handleLogout = () => {
-    confirmAlert({
-      title: 'Confirm Logout',
-      message: 'Are you sure you want to log out of the admin panel?',
-      buttons: [
-        {
-          label: 'Yes',
-          onClick: () => {
-            localStorage.removeItem("token");
-            window.location.href = "/adminlog"; 
-          }
-        },
-        {
-          label: 'No',
-        }
-      ]
-    });
+  const style = {
+    menu: {
+      backgroundColor: "red", // Fixed typo
+      color: "white",
+    },
+    button: {
+      backgroundColor: "red",
+    },
+    nav: {
+      zIndex: "9999",
+    },
   };
 
+
+
+  const isLoggedIn = localStorage.getItem("token");
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-black fixed-top shadow" style={{ zIndex: "9999" }}>
-      <div className="container-fluid px-4">
-        {/* LOGO */}
-        <Link className="navbar-brand d-flex align-items-center" to="/admin">
-          <img src={logo} alt="Planit Journey Logo" width={70} className="object-contain" />
-          <div className="ms-3 border-start ps-3 border-secondary">
-             <h1 className="m-0 p-0 text-white fs-5 fw-bold uppercase tracking-tight">Admin</h1>
-             <p className="m-0 p-0 text-warning opacity-75" style={{ fontSize: '10px', letterSpacing: '2px' }}>DASHBOARD</p>
-          </div>
-        </Link>
-
-        {/* MOBILE MENU BUTTON */}
-        <button 
-          className="navbar-toggler" 
-          type="button" 
-          data-bs-toggle="collapse" 
-          data-bs-target="#adminNavbar" 
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        {/* ADMIN MENU LINKS */}
-        <div className="collapse navbar-collapse" id="adminNavbar">
-          <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
-            <li className="nav-item px-2">
-              <Link to="/alltours" className="nav-link text-white">Tours & Destinations</Link>
-            </li>
-            <li className="nav-item px-2">
-              <Link to="/AllBlog" className="nav-link text-white">Blogs</Link>
-            </li>
-            <li className="nav-item px-2">
-              <Link to="/addvirtualtour" className="nav-link text-white">Virtual Tours</Link>
-            </li>
-            <li className="nav-item px-2">
-              <Link to="/alltestreview" className="nav-link text-white">Reviews</Link>
-            </li>
-            <li className="nav-item px-2">
-              <Link to="/allcontactus" className="nav-link text-white">Contact</Link>
-            </li>
-            <li className="nav-item px-2">
-              <Link to="/clientsdetails" className="nav-link text-white">Clients</Link>
-            </li>
-          </ul>
-
-          {/* ACTIONS */}
-          <div className="d-flex align-items-center gap-3">
-            <Link to="/adminLog" className="btn btn-outline-warning btn-sm fw-bold">
-              + ADD ADMIN
-            </Link>
-            
-            <button onClick={handleLogout} className="btn btn-warning px-4 rounded fw-bold text-black">
-              LOG OUT
-            </button>
-          </div>
-        </div>
+    <div
+      style={style.nav}
+      className="Nav w-100 flex justify-between items-center px-5 p-4 bg-black text-gray-100 fixed top-0 left-0 right-0"
+    >
+      <div className="logo">
+        <img className="object-contain" src={logo} alt="logo.png" width={80} />
       </div>
-    </nav>
+
+      <div className="menu">
+        <ul className="flex justify-between items-center " id="menu">
+          <li className="px-4">
+            <Link to="/alltours" className="hover:text-yellow-400 text-lg">
+              Tours & Destinations
+            </Link>
+          </li>
+          <li className="px-4">
+            <Link to="/AllBlog" className="hover:text-yellow-400 text-lg">
+              Blogs
+            </Link>
+          </li>
+          <li className="px-4">
+            <Link to="/addvirtualtour" className="hover:text-yellow-400 text-lg">
+              Virtual Tours
+            </Link>
+          </li>
+          <li className="px-4">
+            <Link to="/alltestreview" className="hover:text-yellow-400 text-lg">
+              Reviews
+            </Link>
+          </li>
+          <li className="px-4">
+            <Link to="/allcontactus" className="hover:text-yellow-400 text-lg">
+              Contact Us
+            </Link>
+          </li>
+          <li className="px-4">
+            <Link
+              to="/clientsdetails"
+              className="hover:text-yellow-400 text-lg"
+            >
+              Clients
+            </Link>
+          </li>
+        </ul>
+      </div>
+
+      {isLoggedIn ? (
+        <div className="side-button w-24 h-12 flex justify-center items-center rounded bg-amber-500">
+          <Link to="/#" className="text-lg p-2">
+            Profile
+          </Link>
+        </div>
+      ) : (
+        <div
+          className="side-button w-24 h-12 flex justify-center items-center rounded bg-amber-500"
+          style={{ backgroundColor: "red" }}
+        >
+          <Link to="#" className="text-lg p-2">
+            Log Out
+          </Link>
+        </div>
+      )}
+    </div>
   );
 };
 
