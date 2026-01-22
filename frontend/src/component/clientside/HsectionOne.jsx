@@ -1,9 +1,12 @@
 import React from "react";
 import Img from "../../Images/herobg.jpg";
 import { TypeAnimation } from "react-type-animation";
+import { useNavigate } from "react-router-dom"; // 1. Import useNavigate
 import "react-toastify/dist/ReactToastify.css";
 
 const HsectionOne = () => {
+  const navigate = useNavigate(); // 2. Initialize the hook
+
   const addImg = {
     width: "100%",
     height: "120vh",
@@ -44,13 +47,13 @@ const HsectionOne = () => {
         </div>
 
         <div className="d-flex justify-content-center mt-4">
-          <a
-            href="#!"
+          <button
+            onClick={() => navigate("/tours")}
             className="btn btn-warning btn-lg px-5 py-3 shadow"
             style={{ borderRadius: '5px', fontWeight: 'bold' }}
           >
             Discover Tours
-          </a>
+          </button>
         </div>
       </div>
 
