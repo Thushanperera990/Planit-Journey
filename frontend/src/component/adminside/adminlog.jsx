@@ -68,7 +68,7 @@ function AdminSignIn() {
           <input
             type="text"
             className="w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all"
-            placeholder="Admin username"
+            placeholder="••••••••"
             required
             value={username}
             onChange={(e) => setUsername(e.target.value)}

@@ -2,6 +2,18 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 
+const VirtualTour = require('../models/VirtualTour');
+router.get("/read", async (req, res) => {
+    try {
+        const tours = await VirtualTour.find();
+        // Check your console: it should show an array of objects
+        console.log("Sending tours to frontend:", tours); 
+        res.status(200).json(tours);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 // Configure how files are stored
 const storage = multer.diskStorage({
     destination: (req, file, cb) => cb(null, 'uploads/'),
