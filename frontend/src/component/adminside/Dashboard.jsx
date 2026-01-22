@@ -1,25 +1,38 @@
-import React, { useState } from "react";
+import React from "react";
 import logo from "../../Images/Planit Journey Logo Black Background White Text.png";
 import "../CSS/style.css";
-import { Link } from "react-router-dom";
-import { confirmAlert } from "react-confirm-alert"; // Importing confirm alert
-import "react-confirm-alert/src/react-confirm-alert.css"; // Importing confirm alert styles
+import { Link, useNavigate } from "react-router-dom"; // Added useNavigate
+import { confirmAlert } from "react-confirm-alert"; 
+import "react-confirm-alert/src/react-confirm-alert.css"; 
 
 const Dashboard = () => {
+  const navigate = useNavigate(); // Initialize navigation
+
   const style = {
-    menu: {
-      backgroundColor: "red", // Fixed typo
-      color: "white",
-    },
-    button: {
-      backgroundColor: "red",
-    },
     nav: {
       zIndex: "9999",
     },
   };
 
-
+  // ✅ Function to handle Logout
+  const handleLogout = () => {
+    confirmAlert({
+      title: 'Confirm to Log Out',
+      message: 'Are you sure you want to log out of the admin panel?',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => {
+            localStorage.removeItem("token"); // Clear the token
+            navigate("/login"); // Redirect to the client-side login page
+          }
+        },
+        {
+          label: 'No',
+        }
+      ]
+    });
+  };
 
   const isLoggedIn = localStorage.getItem("token");
 
@@ -33,7 +46,7 @@ const Dashboard = () => {
       </div>
 
       <div className="menu">
-        <ul className="flex justify-between items-center " id="menu">
+        <ul className="flex justify-between items-center" id="menu">
           <li className="px-4">
             <Link to="/alltours" className="hover:text-yellow-400 text-lg">
               Tours & Destinations
@@ -60,32 +73,28 @@ const Dashboard = () => {
             </Link>
           </li>
           <li className="px-4">
-            <Link
-              to="/clientsdetails"
-              className="hover:text-yellow-400 text-lg"
-            >
+            <Link to="/clientsdetails" className="hover:text-yellow-400 text-lg">
               Clients
             </Link>
           </li>
         </ul>
       </div>
-
-      {isLoggedIn ? (
-        <div className="side-button w-24 h-12 flex justify-center items-center rounded bg-amber-500">
-          <Link to="/#" className="text-lg p-2">
-            Profile
-          </Link>
-        </div>
-      ) : (
-        <div
-          className="side-button w-24 h-12 flex justify-center items-center rounded bg-amber-500"
-          style={{ backgroundColor: "red" }}
-        >
-          <Link to="#" className="text-lg p-2">
+      <div className="flex gap-4">
+        {isLoggedIn ? (
+          <button
+            onClick={handleLogout}
+            className="side-button w-24 h-12 flex justify-center items-center rounded bg-red-600 hover:bg-red-700 text-white text-lg font-medium transition-colors"
+          >
             Log Out
-          </Link>
-        </div>
-      )}
+          </button>
+        ) : (
+          <div className="side-button w-24 h-12 flex justify-center items-center rounded bg-red-600">
+            <Link to="/login" className="text-lg p-2">
+              Log Out
+            </Link>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
