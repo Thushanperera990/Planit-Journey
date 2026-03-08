@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { GoogleMap, InfoWindowF, MarkerF, useJsApiLoader } from '@react-google-maps/api';
 import LocIcon from '../../Images/loc.png'
 import doc from '../../Images/document.png'
-// import bot from '../../Images/bot.png' // Removed Chatbot Image
 import mic2 from '../../Images/microphone.png'
 import "../CSS/style.css"
 import axios from "axios"
@@ -88,7 +87,7 @@ const LocMap = () => {
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: `AIzaSyBrAJXUQ_Z-q2l3X-yhLNvOfVB0KS7bqSU` 
+        googleMapsApiKey: `AIzaSyB_bV8jC1ZvhLaBWnt8NHqyqNFojFho6t0` 
     });
 
     const markers = [
