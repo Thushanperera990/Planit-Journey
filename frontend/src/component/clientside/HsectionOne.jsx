@@ -54,14 +54,12 @@ const HsectionOne = () => {
 
         <div className="block-3 p-1">
           <h3 style={fontSize.f2}>
-            Discover and book tent camping, RV parks, cabins, treehouses, and
-            glamping.
+            Discover the Most Beautiful Places in Sri Lanka
           </h3>
         </div>
 
         <div className="side-button flex justify-center items-center mt-6 ">
-          <a
-            href="#!"
+          <a href="/virtualtours"
             className="w-48 h-14 flex justify-center items-center rounded bg-amber-500 text-lg "
           >
             {" "}

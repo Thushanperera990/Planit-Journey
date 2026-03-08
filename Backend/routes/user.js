@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 
 // --- 1. REGISTRATION ---
 router.post("/reg", async (req, res) => {
-  const { username, password, confirmPassword, email /* other fields */ } = req.body;
+  const { username, password, confirmPassword, email} = req.body;
   if (password !== confirmPassword) return res.status(400).json({ error: "Passwords match error" });
 
   try {
@@ -20,7 +20,7 @@ router.post("/reg", async (req, res) => {
   }
 });
 
-// --- 2. LOGIN (Changed from /log to /login to match your frontend) ---
+// --- 2. LOGIN 
 router.post("/login", async (req, res, next) => {
   const { username, password } = req.body;
   try {
@@ -38,7 +38,6 @@ router.post("/login", async (req, res, next) => {
   }
 });
 
-// --- 3. OTHER ROUTES (GET, PUT, DELETE) ---
-// ... keep your existing GET / and GET /:id routes here ...
+
 
 module.exports = router;

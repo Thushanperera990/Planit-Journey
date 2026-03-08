@@ -29,7 +29,8 @@ const HSectionThird = () => {
                                 <img src={Img1} alt="Experience" width={140} />
                             </div>
                             <h2 className="fs-4 fw-bold p-2 text-dark">15 Years of Experiences</h2>
-                            <p className="fs-6 text-dark">Host our community of good-natured campers, glampers, and RV travelers on your land or at your cabin.</p>
+                            <p className="fs-6 text-dark">With over 15 years of experience in Sri Lanka tourism, we create unforgettable journeys across beaches, mountains, wildlife, and heritage destinations.
+                            We plan every trip with local expertise and personal care.</p>
                         </div>
                     </div>
 
@@ -39,8 +40,9 @@ const HSectionThird = () => {
                             <div className="d-flex justify-content-center p-3">
                                 <img src={Img2} alt="Camps" width={140} />
                             </div>
-                            <h2 className="fs-4 fw-bold p-2 text-dark">200+ Camps To Visit</h2>
-                            <p className="fs-6 text-dark">Host our community of good-natured campers, glampers, and RV travelers on your land or at your cabin.</p>
+                            <h2 className="fs-4 fw-bold p-2 text-dark">200+ Places to Explore</h2>
+                            <p className="fs-6 text-dark">Discover over 200 breathtaking destinations across Sri Lanka, from ancient cities and lush tea plantations to golden beaches and national parks.
+Every tour is carefully designed to match your travel style.</p>
                         </div>
                     </div>
 
@@ -50,8 +52,9 @@ const HSectionThird = () => {
                             <div className="d-flex justify-content-center p-3">
                                 <img src={Img3} alt="Community" width={140} />
                             </div>
-                            <h2 className="fs-4 fw-bold p-2 text-dark">Big Community</h2>
-                            <p className="fs-6 text-dark">Host our community of good-natured campers, glampers, and RV travelers on your land or at your cabin.</p>
+                            <h2 className="fs-4 fw-bold p-2 text-dark">Travel Community</h2>
+                            <p className="fs-6 text-dark">Join a growing community of happy travelers who trust us to plan safe, comfortable, and memorable tours around Sri Lanka.
+Your journey is supported by local knowledge and friendly service.</p>
                         </div>
                     </div>
 

@@ -1,9 +1,9 @@
 import React from 'react'
-import Img1 from '../../Images/g1.png'
-import Img2 from '../../Images/g2.png'
-import Img3 from '../../Images/g3.png'
-import Img4 from '../../Images/g4.png'
-import Img5 from '../../Images/g5.png'
+import Img1 from '../../Images/g1.jpeg'
+import Img2 from '../../Images/g2.jpeg'
+import Img3 from '../../Images/g3.jpeg'
+import Img4 from '../../Images/g4.jpeg'
+import Img5 from '../../Images/g5.jpeg'
 
 const Hsection5 = () => {
 

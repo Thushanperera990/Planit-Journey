@@ -30,9 +30,9 @@ const Hsection4 = () => {
 
             <div className="col-one block w-[45%]">
 
-                <h1 className='text-4xl font-bold mb-4'>Camper is the best way to find camping tours. Let’s make the most memorable adventures.</h1>
+                <h1 className='text-4xl font-bold mb-4'>Planit Journey is the best way to find tours. Let’s make the most memorable adventures.</h1>
 
-                <p className='text-xl mb-3'>Camper Tour is an incredible way to have an adventurous outdoor experience of world renowned national parks and wilderness destinations while hiking with only a light daypack and sleeping soundly in comfortable, vehicle-accessible camps.</p>
+                <p className='text-xl mb-3'>Planit Journey Tour is an incredible way to have an adventurous.It can search and explore destinations, attractions, accommodations, and dining options.</p>
 
                 <div className="block-in flex  justify-center items-center w-[95%] my-4">
 
