@@ -168,7 +168,7 @@ router.route('/sendemail').post(async (req, res) => {
         subject: 'Explore Your destination',
         html: `<h3>Hey, Pasindu</h3>
         <h3>🔥 Thanks For Purchasing Our Tour 🔥<br/><br/> Now You Can Explore Your Tour Destination points with 
-        <br/> Google map And Our Chatbot 🤖 <i>Click Explore tour Button</i> </h3>
+        <br/> Google Map <i>Click Explore tour Button</i> </h3>
     
        <a href="http://localhost:3000/map2/${id}" style='background-color:#FFD700;
         border: none;

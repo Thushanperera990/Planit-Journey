@@ -19,7 +19,6 @@ import PaymentPage from "./component/clientside/PaymentPage";
 import Map from "./component/clientside/Map";
 import View from "./component/clientside/360View";
 import LocMap from "./component/clientside/LocMap";
-import Chatbot from "./component/clientside/Chatbot";
 import UserAllBookings from "./component/clientside/UserAllBookings";
 
 // ADMIN SIDE IMPORTS
@@ -69,7 +68,6 @@ function App() {
         <Route path="/map" element={<Map />} />
         <Route path="/view/:id" element={<View />} />
         <Route path="/map2/:id" element={<LocMap />} />
-        <Route path="/chat" element={<Chatbot />} />
         <Route path="/bookings/user/:id" element={<UserAllBookings />} />
 
         {/* ADMIN SIDE ROUTES */}

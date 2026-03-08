@@ -9,7 +9,7 @@ const VirtualTours = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // ✅ MATCHES server.js: app.use('/api/virtualtours', ...)
+        //MATCHES server.js: app.use('/api/virtualtours', ...)
         const response = await fetch("http://localhost:5000/api/virtualtours/read");
         
         if (!response.ok) {
@@ -21,7 +21,7 @@ const VirtualTours = () => {
         if (Array.isArray(data)) {
           const imagesData = data.map((item) => ({
             _id: item._id,
-            // ✅ FIX: Use 'images' array from your new schema and fix backslashes
+            //FIX: Use 'images' array from your new schema and fix backslashes
             imagePath: item.images && item.images.length > 0 
                        ? item.images[0].replace(/\\/g, '/') 
                        : '',
