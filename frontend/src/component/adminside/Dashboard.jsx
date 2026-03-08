@@ -72,11 +72,6 @@ const Dashboard = () => {
               Contact Us
             </Link>
           </li>
-          <li className="px-4">
-            <Link to="/clientsdetails" className="hover:text-yellow-400 text-lg">
-              Clients
-            </Link>
-          </li>
         </ul>
       </div>
       <div className="flex gap-4">

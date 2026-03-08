@@ -42,14 +42,14 @@ const AddVirtualTour = () => {
       }
 
       const response = await axios.post(
-      "http://localhost:5000/api/virtualtours/add",
+        "http://localhost:8090/api/images/upload",
         formData,
-          {
-           headers: {
-             "Content-Type": "multipart/form-data",
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
           },
-  }
-);
+        }
+      );
 
       setTitle("");
       setSelectedImageFiles([]);

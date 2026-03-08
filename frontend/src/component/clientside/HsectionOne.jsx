@@ -1,37 +1,49 @@
 import React from "react";
 import Img from "../../Images/herobg.jpg";
 import { TypeAnimation } from "react-type-animation";
-import { useNavigate } from "react-router-dom"; // 1. Import useNavigate
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Bounce, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const HsectionOne = () => {
-  const navigate = useNavigate(); // 2. Initialize the hook
 
+const HsectionOne = () => {
   const addImg = {
     width: "100%",
     height: "120vh",
     backgroundImage: `url(${Img})`,
     backgroundSize: "cover",
-    backgroundPosition: "center",
   };
 
   const fontSize = {
-    f0: { fontSize: "3rem", letterSpacing: "8px" },
-    f1: { fontSize: "5rem", fontWeight: "bold", letterSpacing: "12px" },
-    f2: { fontSize: "1.1rem", letterSpacing: "0.5px" },
+    f0: {
+      fontSize: "3rem",
+      letterSpacing: "8px",
+    },
+    f1: {
+      fontSize: "5rem",
+      fontWeight: "bold",
+      letterSpacing: "12px",
+    },
+    f2: {
+      fontSize: "1.1rem",
+      letterSpacing: "0.5px",
+    },
   };
 
   return (
     <div
-      className="d-flex align-items-center justify-content-center text-white"
+      className="flex items-center justify-center  text-gray-100"
       style={addImg}
     >
-      <div className="text-center">
-        <div className="p-2 mt-5">
-          <h2 style={fontSize.f0}>EXPLORE</h2>
+      <div className="main-block block text-center">
+        <div className="block-1 p-2 mt-12">
+          <h2 className="" style={fontSize.f0}>
+            EXPLORE
+          </h2>
         </div>
 
-        <div className="p-2">
+        <div className="block-2 p-2">
           <TypeAnimation
             sequence={[1500, "THE NEW WORLD", 1000, 8500, ""]}
             style={fontSize.f1}
@@ -40,40 +52,49 @@ const HsectionOne = () => {
           />
         </div>
 
-        <div className="p-1">
+        <div className="block-3 p-1">
           <h3 style={fontSize.f2}>
-            Discover the most beautiful places in Sri Lanka.
+            Discover and book tent camping, RV parks, cabins, treehouses, and
+            glamping.
           </h3>
         </div>
 
-        <div className="d-flex justify-content-center mt-4">
-          <button
-            onClick={() => navigate("/tours")}
-            className="btn btn-warning btn-lg px-5 py-3 shadow"
-            style={{ borderRadius: '5px', fontWeight: 'bold' }}
+        <div className="side-button flex justify-center items-center mt-6 ">
+          <a
+            href="#!"
+            className="w-48 h-14 flex justify-center items-center rounded bg-amber-500 text-lg "
           >
+            {" "}
             Discover Tours
-          </button>
+          </a>
         </div>
       </div>
 
-      {/* Bootstrap Modal Structure */}
+      {/* {model background} */}
+
       <div
-        className="modal fade"
+        class="modal fade"
         id="staticBackdrop"
         data-bs-backdrop="static"
-        tabIndex="-1"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h1 className="modal-title fs-5 text-dark">LOGIN</h1>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div className="modal-dialog modal-dialog-centered max-w-2xl ">
+          <div className="modal-content ">
+            <div className="modal-header flex justify-between items-center">
+              <h1 className="text-black text-2xl font-semibold flex justify-center w-full">
+                LOGIN
+              </h1>
+              <button
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+              a
             </div>
-            <div className="modal-body text-dark">
-               Login form content goes here...
-            </div>
+      
           </div>
         </div>
       </div>

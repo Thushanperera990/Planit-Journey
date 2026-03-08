@@ -5,25 +5,7 @@ import Hfotter from "./Hfotter";
 import axios from "axios";
 
 const FAQ =() => {
-  /*const [userDetails, setUserDetails] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    // Fetch user details from the backend API
-    const fetchUserDetails = async () => {
-      try {
-        const response = await axios.get("YOUR_BACKEND_API_URL_HERE");
-        setUserDetails(response.data);
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Error fetching user details:", error);
-        setIsLoading(false);
-      }
-    };
-
-    fetchUserDetails();
-  }, []);
-*/
   const addImg = {
     width: "100%",
     minHeight: "40vh",
