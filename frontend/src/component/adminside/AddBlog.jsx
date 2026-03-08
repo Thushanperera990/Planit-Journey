@@ -36,7 +36,7 @@ const AddBlogs = () => {
 
   const checkTitleExists = async (title) => {
     try {
-      const response = await axios.get(`http://localhost:8090/blogs/check-title/${title}`);
+      const response = await axios.get(`http://localhost:5000/blogs/check-title/${title}`);
       return response.data.exists;
     } catch (error) {
       console.error("Error checking title:", error);
@@ -95,7 +95,7 @@ const AddBlogs = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:8090/blogs', blogData);
+      const response = await axios.post('http://localhost:5000/blogs', blogData);
       toast.success("Blog successfully added!");
       resetFormFields();
       setTimeout(() => window.location.href = "/AllBlog", 2000);

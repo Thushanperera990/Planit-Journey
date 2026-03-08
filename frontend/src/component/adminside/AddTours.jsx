@@ -100,7 +100,7 @@ const AddTours = () => {
       }
 
       const response = await axios.post(
-        "http://localhost:8090/tours",
+        "http://localhost:5000/tours",
         formData,
         {
           headers: {
