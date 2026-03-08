@@ -150,7 +150,6 @@ const LocMap = () => {
             ) : null}
 
             <div style={style.section2}>
-                {/* Chatbot Button Removed */}
                 <button 
                     id="step1" 
                     style={style.section3} 
