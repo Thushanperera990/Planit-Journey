@@ -18,7 +18,7 @@ const upload = multer({ storage: storage });
 
 // --- ROUTES ---
 
-// ✅ ROUTE A: GET ALL TOURS (The Gallery)
+//ROUTE A: GET ALL TOURS (The Gallery)
 // This MUST come before the /:id route
 router.get("/read", async (req, res) => {
   try {
@@ -29,7 +29,7 @@ router.get("/read", async (req, res) => {
   }
 });
 
-// ✅ ROUTE B: ADD NEW TOUR (Admin Panel)
+//ROUTE B: ADD NEW TOUR (Admin Panel)
 router.post("/add", upload.fields([
   { name: 'images', maxCount: 10 }, 
   { name: 'music', maxCount: 1 }
@@ -57,7 +57,7 @@ router.post("/add", upload.fields([
   }
 });
 
-// ✅ ROUTE C: GET SINGLE TOUR (The 360 Viewer)
+//ROUTE C: GET SINGLE TOUR (The 360 Viewer)
 // This MUST be at the bottom
 router.get("/:id", async (req, res) => {
   try {

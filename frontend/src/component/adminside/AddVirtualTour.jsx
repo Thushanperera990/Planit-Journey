@@ -42,7 +42,7 @@ const AddVirtualTour = () => {
       }
 
       const response = await axios.post(
-        "http://localhost:5000/api/images/upload",
+        "http://localhost:5000/api/virtualtours/add",
         formData,
         {
           headers: {
@@ -55,7 +55,7 @@ const AddVirtualTour = () => {
       setSelectedImageFiles([]);
       setSelectedMusicFile(null);
       setLoading(false);
-      toast.success("Virtual tour created successfully", {
+      toast.success("Virtual Tour created successfully", {
         position: "top-center",
         theme: "dark",
         transition: Bounce,
