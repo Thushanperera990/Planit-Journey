@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // CLIENT SIDE IMPORTS
-// Note: Ensure your physical folder is named "component" (all lowercase)
 import Home from "./component/clientside/Home";
 import Register from "./component/clientside/Register";
 import Login from "./component/clientside/Login";
@@ -20,6 +19,9 @@ import Map from "./component/clientside/Map";
 import View from "./component/clientside/360View";
 import LocMap from "./component/clientside/LocMap";
 import UserAllBookings from "./component/clientside/UserAllBookings";
+import PrivacyPolicy from "./component/clientside/PrivacyPolicy"; 
+import TermsAndConditions from "./component/clientside/TermsAndConditions";
+
 
 // ADMIN SIDE IMPORTS
 import Dashboard from "./component/adminside/Dashboard";
@@ -69,6 +71,8 @@ function App() {
         <Route path="/view/:id" element={<View />} />
         <Route path="/map2/:id" element={<LocMap />} />
         <Route path="/bookings/user/:id" element={<UserAllBookings />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsAndConditions />} />
 
         {/* ADMIN SIDE ROUTES */}
         <Route path="/admin" element={<Dashboard />} />
