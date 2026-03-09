@@ -3,7 +3,6 @@ import Img from '../../Images/wave-bg.jpg'
 import Img2 from '../../Images/map.png'
 import Img3 from '../../Images/w1.jpg'
 
-import CountUp from 'react-countup';
 import ScrollTrigger from 'react-scroll-trigger';
 
 const Hsection4 = () => {
@@ -44,7 +43,7 @@ const Hsection4 = () => {
                             </div>
 
                             {count &&
-                                <h2 className='text-5xl font-bold my-4 text-amber-500'><CountUp end={1940} duration={5}></CountUp> +</h2>
+                                <h2 className='text-5xl font-bold my-4 text-amber-500'>1940+</h2>
                             }
 
                             <h2 className='font-bold text-xl my-2'>The First Trip We Operated</h2>
@@ -59,7 +58,7 @@ const Hsection4 = () => {
                             </div>
 
                             {count &&
-                                <h2 className='text-5xl font-bold my-4 text-amber-500'><CountUp end={980} duration={5}></CountUp> +</h2>
+                                <h2 className='text-5xl font-bold my-4 text-amber-500'>980+</h2>
                             }
 
                             <h2 className='font-bold text-xl my-2'>The First Trip We Operated</h2>
