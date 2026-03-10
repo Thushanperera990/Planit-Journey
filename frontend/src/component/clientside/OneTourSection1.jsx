@@ -227,7 +227,7 @@ const OneTourSection1 = () => {
 
             <div className="card-body text-center">
   <h5 className="card-title mb-4" style={{ fontSize: "24px", fontWeight: "bold" }}>
-    <div className="text-center">Explore Booking</div>
+    <div className="text-center">Explore Plan</div>
   </h5>
   <p className="card-text mb-2 text-left" style={{ fontSize: "18px", color: "#fcb900",fontWeight: "bold" }}>
     {tour.tourName}
