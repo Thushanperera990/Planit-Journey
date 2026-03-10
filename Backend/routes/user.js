@@ -1,6 +1,5 @@
 const router = require("express").Router();
-const User = require("../models/user"); 
-const Booking = require("../models/bookings");
+const User = require("../models/user");
 const bcrypt = require("bcryptjs"); // Use bcryptjs consistently
 const jwt = require("jsonwebtoken");
 
@@ -37,7 +36,24 @@ router.post("/login", async (req, res, next) => {
     next(error);
   }
 });
+// --- 3. GET USER BY ID ---
+// This handles the request from Profile.jsx: http://localhost:5000/api/users/:id
+router.get("/:id", async (req, res) => {
+  try {
+    // Find the user in MongoDB by the ID sent in the URL
+    const user = await User.findById(req.params.id).select("-password");
 
+    if (!user) {
+      return res.status(404).json({ error: "User not found in database" });
+    }
+
+    // Send the user data back to Profile.jsx
+    res.status(200).json(user);
+  } catch (err) {
+    console.error("Backend Error:", err);
+    res.status(500).json({ error: "Server error retrieving user" });
+  }
+});
 
 
 module.exports = router;
