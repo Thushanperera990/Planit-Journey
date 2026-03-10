@@ -29,7 +29,7 @@ const ReviewSchema = new Schema({
         required : true
     },
     images: [{
-        type: String, // Assuming you store image URLs
+        type: String,
         required: true
     }]
 
