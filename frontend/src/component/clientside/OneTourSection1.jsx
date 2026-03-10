@@ -210,7 +210,7 @@ const OneTourSection1 = () => {
               <hr className=""></hr>
               <h1 className="mt-4 mb-2 text-2xl fw-bold">Explor Your Tour</h1>
               <p className=" text-amber-500 mb-2">
-                You can Explore tour with google map and AI Assistant. <br></br>
+                You can Explore tour with google Map. <br></br>
                 <span className=" p-1 rounded bg-slate-700 text-white">
                   Click Map Icon!
                 </span>
