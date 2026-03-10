@@ -17,7 +17,7 @@ const commentsSchema = new Schema({
   },
   parentComment: {
     type: Schema.Types.ObjectId,
-    ref: "Comment",
+    ref: "Comments",
     default: null,
   },
   createdAt: {
@@ -26,5 +26,5 @@ const commentsSchema = new Schema({
   },
 });
 
-const Comment = mongoose.model("Comment", commentsSchema);
-module.exports = Comment;
+const Comments = mongoose.model("Comments", commentsSchema);
+module.exports = Comments;

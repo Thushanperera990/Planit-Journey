@@ -24,7 +24,7 @@ mongoose.connect(MONGO_URI)
 
 // 6. Route Middleware
 
-// Import all routes (ONLY ONCE EACH)
+// Import all routes
 const userRoutes = require('./routes/user');
 const adminRoutes = require('./routes/admin');
 const tourRoutes = require('./routes/tours'); 
@@ -34,8 +34,9 @@ const destinationRoutes = require('./routes/destinations');
 const testReviewRoutes = require('./routes/testreview'); 
 const path = require('path');
 const contactRouter = require("./routes/contactus");
-
+const commentRoutes = require('./routes/comments');
 // Connect the routes to the app
+app.use('/comments', commentRoutes);
 app.use('/api/users', userRoutes);
 app.use('/admins', adminRoutes);
 app.use('/tours', tourRoutes); 
