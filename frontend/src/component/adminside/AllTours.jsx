@@ -170,7 +170,6 @@ const AllTours = () => {
             <th scope="col">Price</th>
             <th scope="col">Update</th>
             <th scope="col">Delete</th>
-            <th scope="col">Destinations</th>
           </tr>
         </thead>
         <tbody>
@@ -196,53 +195,6 @@ const AllTours = () => {
                   style={{ width: "20px", height: "20px", cursor: "pointer" }}
                   onClick={() => deleteTour(tour._id)}
                 />
-              </td>
-              <td>
-                <a href={`/adddes/${tour._id}`}>
-                  <button className=" bg-green-600"
-                    style={{
-                      backgroundColor: "",
-                      color: "white",
-                      padding: "1px 10px",
-                      border: "none",
-                      borderRadius: "4px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    Add
-                  </button>
-                </a>
-
-                {/* <a href={`/map2/${tour._id}`} className="ml-3 bg-amber-400">
-                  <button className=" bg-amber-400"
-                    style={{
-                      backgroundColor: "",
-                      color: "black",
-                      padding: "1px 10px",
-                      border: "none",
-                      borderRadius: "4px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    View
-                  </button>
-                </a> */}
-
-                <a href={`/editdes/${tour._id}`} className="ml-3 ">
-                  <button className=" bg-blue-700"
-                    style={{
-                      backgroundColor: "",
-                      color: "white",
-                      padding: "1px 10px",
-                      border: "none",
-                      borderRadius: "4px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    View & Edit
-                  </button>
-                </a>
-
               </td>
             </tr>
           ))}

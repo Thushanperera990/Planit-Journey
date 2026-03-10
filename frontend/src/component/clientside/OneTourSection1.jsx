@@ -238,15 +238,12 @@ const OneTourSection1 = () => {
   <p className="card-text mb-4 text-left" style={{ fontSize: "18px" }}>
     ${tour.price}
   </p>
-  <a href={`/payment/${tour._id}`} className="btn" style={{ backgroundColor: "#fcb900", marginBottom:"10%" }}>
-    Book Now
-  </a>
 </div>
 
             <hr/>
             <div className="card-body text-center">
   <h5 className="card-title mb-4 mt-5" style={{ fontSize: "24px", fontWeight: "bold" }}>
-    <div className="text-center">Book With Confidence</div>
+    <div className="text-center">Our Services</div>
   </h5>
   <p className="card-text mb-3 text-left" style={{ fontSize: "18px"}}>
   <i class="fa-regular fa-thumbs-up" style={{ fontSize: "20px", marginRight: "10px" }}></i>
@@ -284,9 +281,6 @@ const OneTourSection1 = () => {
 
 <hr/>
 
-            {/* booking */}
-
-            {/* */}
           </div>
         </div>
       </div>
